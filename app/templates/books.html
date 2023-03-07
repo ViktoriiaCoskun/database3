@@ -1,0 +1,18 @@
+{% extends 'home.html' %}
+
+{% block body %}
+
+  <form method="{{method}}" action="/api/v1/booklibrary/{{id}}/">
+    {{ form.hidden_tag() }}
+    <table>
+      {% for field in form if field.widget.input_type != 'hidden' %}
+        <tr>
+          <th>{{ field.label }} {% if field.flags.required %}*{% endif %}</th>
+          <td>{{ field }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </form>
+{% endblock %}
+
+/api/v1/booklibrary/
